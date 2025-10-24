@@ -1,6 +1,6 @@
 resource "aws_iam_role" "admin_access_role" {
-  name = "${var.name} - iam_role"
 
+  name = "admin_access_role"
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
   assume_role_policy = jsonencode({
@@ -18,6 +18,7 @@ resource "aws_iam_role" "admin_access_role" {
   })
 
   tags = {
+    Name = "${var.name}-iam_role"
     tag-key = "tag-value"
   }
 }
